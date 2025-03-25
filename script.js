@@ -134,3 +134,24 @@ document.addEventListener("DOMContentLoaded", function() {
         contactButton.classList.toggle('bounce');
     }, 2000);
 });
+
+// Efek Matrix - Karakter yang jatuh seperti di film Matrix
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
+document.body.appendChild(canvas);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const columns = canvas.width / 20;
+const drops = Array.from({ length: columns }).fill(1); // Membuat array untuk posisi drops
+
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+const charArray = characters.split(""); // Membuat array karakter untuk efek
+
+// Fungsi untuk menggambar
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height); // Membuat latar belakang
+
